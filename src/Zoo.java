@@ -42,5 +42,9 @@ public class Zoo extends JFrame
 		});
 			
 	}
-}
 
+	public static void main(String [] args)
+	{
+		new Zoo();
+	}
+}

@@ -30,7 +30,7 @@ public class Welcome extends JPanel
 		BufferedImage img = null;
 		try 
 		{
-			img = ImageIO.read(new File("zoo.jpeg"));
+			img = ImageIO.read(new File("Zoo-PNG-HIgh-Quality-Image.png"));
 		} 
 		catch (IOException e) 
 		{
