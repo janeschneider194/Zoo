@@ -1,4 +1,5 @@
+import javax.swing.JPanel;
 
-public class Amphibians {
+public class Amphibians extends JPanel{
 
 }

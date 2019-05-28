@@ -24,7 +24,7 @@ public class Zoo extends JFrame
 		
 		cl.show(welcome, "Welcome");
 		
-		setBounds(100,100,800,600);
+		setBounds(100,100,800,800);
 		this.setJMenuBar(menu);
 		setVisible(true);
 		setDefaultCloseOperation(this.EXIT_ON_CLOSE);

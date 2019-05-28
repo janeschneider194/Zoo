@@ -1,4 +1,5 @@
+import javax.swing.JPanel;
 
-public class Birds {
+public class Birds extends JPanel {
 
 }

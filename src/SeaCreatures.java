@@ -1,4 +1,5 @@
+import javax.swing.JPanel;
 
-public class SeaCreatures {
+public class SeaCreatures extends JPanel {
 
 }
