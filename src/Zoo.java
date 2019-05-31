@@ -96,7 +96,7 @@ public class Zoo extends JFrame
 		Dolphin dolphin = new Dolphin(this);
 		overall.add(dolphin, "Dolphin");
 		
-		cl.show(welcome, "Welcome");
+		cl.show(overall, "Welcome");
 		
 		setBounds(100,100,800,800);
 		this.setJMenuBar(menu);
@@ -109,12 +109,11 @@ public class Zoo extends JFrame
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				cl.show(welcome, "Welcome");		
+				cl.show(overall, "Welcome");		
 			}
 			
 		});
 	}
-//fix
 		public void showPanel(String type)
 		{
 			cl.show(overall,type);

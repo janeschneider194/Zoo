@@ -22,9 +22,7 @@ public class ZooMap extends JPanel
 	public ZooMap(Zoo frame)
 	{
 		fram = frame;
-		JPanel overall = new JPanel();
-		CardLayout cl = new CardLayout();
-		overall.setLayout(new GridBagLayout());
+		setLayout(new GridBagLayout());
 		
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridx = 0;
@@ -98,7 +96,7 @@ public class ZooMap extends JPanel
 		BufferedImage imgsea = null;
 		try 
 		{
-			imgsea = ImageIO.read(new File("sea creatures.jpg"));
+			imgsea = ImageIO.read(new File("sea creatures.jpeg"));
 		} 
 		catch (IOException e) 
 		{
@@ -107,6 +105,7 @@ public class ZooMap extends JPanel
 		JLabel labelsea = new JLabel(new ImageIcon(imgsea));
 		labelsea.setLocation(150,500);
 		add(labelsea);
+		
 		JButton creatures = new JButton("Explore Sea Creatures");
 		creatures.setBounds(150,650,100,30);
 		add(creatures);

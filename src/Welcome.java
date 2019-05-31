@@ -1,5 +1,8 @@
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -7,6 +10,7 @@ import javax.swing.JFrame;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -29,25 +33,30 @@ public class Welcome extends JPanel
 		add(welcome, gbc);
 		
 		gbc.gridy = 1;
+	
 		
-		BufferedImage img = null;
-		try 
-		{
-			img = ImageIO.read(new File("Zoo-PNG-HIgh-Quality-Image.png"));
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
-		JLabel label = new JLabel(new ImageIcon(img));
-		add(label, gbc);
+		ImageIcon imageIcon = new ImageIcon("zoo.jpeg");
+	    JLabel label = new JLabel(imageIcon);
+	    add(label,gbc);
 		
 		gbc.gridy = 2;
 		JButton click = new JButton("Click to Learn");
 		setSize(200,300);
 		add(click, gbc);
+		click.addActionListener(new ActionListener()
+		{
+
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				fram.showPanel("Zoo Map");
+						
+			}
+			
+		});
 		
-		
+		setVisible(true);
 	}
+	
 
 }
