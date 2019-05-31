@@ -3,7 +3,7 @@ import java.awt.GridBagLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+import javax.swing.JFrame;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,9 +12,12 @@ import javax.swing.JPanel;
 
 public class Welcome extends JPanel
 {
-	public Welcome()
+	private Zoo fram;
+	public Welcome(Zoo frame)
 	{
+		fram = frame;
 		this.setBounds(100,100,800,600);
+		
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		

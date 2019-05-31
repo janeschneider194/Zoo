@@ -1,4 +1,14 @@
+import java.awt.GridBagLayout;
 
-public class Starfish {
-
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+public class Starfish extends JPanel 
+{
+	private JFrame fram;
+	public Starfish(JFrame frame)
+	{
+		fram = frame;
+		setBounds(100,100,800,800);
+		setLayout(new GridBagLayout());
+	}
 }

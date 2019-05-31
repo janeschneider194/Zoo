@@ -1,4 +1,6 @@
 import java.awt.CardLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -8,36 +10,32 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ZooMap extends JPanel
 {
-	public ZooMap()
+	private Zoo fram;
+	
+//get rid of locations
+	public ZooMap(Zoo frame)
 	{
+		fram = frame;
 		JPanel overall = new JPanel();
 		CardLayout cl = new CardLayout();
-		overall.setLayout(cl);
+		overall.setLayout(new GridBagLayout());
+		
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
 		
 		setBounds(100,100,800,800);
 		setLayout(null);
-		
-		Primates p = new Primates();
-		overall.add(p, "Primates");
-		Amphibians a = new Amphibians();
-		overall.add(a, "Amphibians");
-		Birds b = new Birds();
-		overall.add(b,"Birds");
-		Cats c = new Cats();
-		overall.add(c,"Cats");
-		Reptiles r = new Reptiles();
-		overall.add(r,"Reptiles");
-		SeaCreatures s = new SeaCreatures();
-		overall.add(s, "Sea Creatures");
-			
-		
+	
 		JLabel primate = new JLabel("Primates");
 		primate.setBounds(0,0,100,50);
+		add(primate);
 		BufferedImage imgprim = null;
 		try 
 		{
@@ -49,12 +47,15 @@ public class ZooMap extends JPanel
 		}
 		JLabel labelmonkey = new JLabel(new ImageIcon(imgprim));
 		labelmonkey.setLocation(0,100);
+		add(labelmonkey);
 		JButton prim = new JButton("Explore Primates");
 		prim.setBounds(0,250,100,30);
+		add(prim);
 		
 		
 		JLabel ampibians = new JLabel("Amphibians");
 		ampibians.setBounds(0,400,100,100);
+		add(ampibians);
 		BufferedImage imgamp = null;
 		try 
 		{
@@ -66,12 +67,15 @@ public class ZooMap extends JPanel
 		}
 		JLabel labelamp = new JLabel(new ImageIcon(imgamp));
 		labelamp.setLocation(0,500);
+		add(labelamp);
 		JButton amp = new JButton("Explore Amphibians");
 		amp.setBounds(0,650,100,30);
+		add(amp);
 		
 		
 		JLabel birds = new JLabel("Birds");
 		birds.setBounds(150,0,100,50);
+		add(birds);
 		BufferedImage imgbird = null;
 		try 
 		{
@@ -83,11 +87,14 @@ public class ZooMap extends JPanel
 		}
 		JLabel labelbird = new JLabel(new ImageIcon(imgbird));
 		labelbird.setLocation(100,100);
+		add(labelbird);
 		JButton bir = new JButton("Explore Birds");
 		bir.setBounds(150,250,100,30);
+		add(bir);
 		
 		JLabel sea = new JLabel("Sea Creatures");
 		sea.setBounds(150,400,100,50);
+		add(sea);
 		BufferedImage imgsea = null;
 		try 
 		{
@@ -99,12 +106,15 @@ public class ZooMap extends JPanel
 		}
 		JLabel labelsea = new JLabel(new ImageIcon(imgsea));
 		labelsea.setLocation(150,500);
+		add(labelsea);
 		JButton creatures = new JButton("Explore Sea Creatures");
 		creatures.setBounds(150,650,100,30);
+		add(creatures);
 		
 		
 		JLabel cats = new JLabel("Cats");
 		cats.setBounds(300,0,100,50);
+		add(cats);
 		BufferedImage imgcats = null;
 		try 
 		{
@@ -116,12 +126,15 @@ public class ZooMap extends JPanel
 		}
 		JLabel labelcats = new JLabel(new ImageIcon(imgcats));
 		labelcats.setLocation(300,100);
+		add(labelcats);
 		JButton ca = new JButton("Explore Cats");
 		ca.setBounds(300,250,100,30);
+		add(ca);
 		
 		
 		JLabel reptiles = new JLabel("Reptiles");
 		reptiles.setBounds(300,400,100,50);
+		add(reptiles);
 		BufferedImage imgrep = null;
 		try 
 		{
@@ -133,8 +146,10 @@ public class ZooMap extends JPanel
 		}
 		JLabel labelrep = new JLabel(new ImageIcon(imgrep));
 		labelrep.setLocation(300,550);
+		add(labelrep);
 		JButton rep = new JButton("Explore Reptiles");
 		rep.setBounds(300,700,100,30);
+		add(rep);
 		
 		prim.addActionListener(new ActionListener()
 		{
@@ -142,7 +157,7 @@ public class ZooMap extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				cl.show(p, "Primates");
+				fram.showPanel("Primates");
 						
 			}
 			
@@ -153,8 +168,7 @@ public class ZooMap extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				cl.show(a, "Amphibians");
-						
+				fram.showPanel("Amphibians");		
 			}
 			
 		});
@@ -165,7 +179,7 @@ public class ZooMap extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				cl.show(b, "Birds");
+				fram.showPanel("Birds");
 						
 			}
 			
@@ -176,7 +190,7 @@ public class ZooMap extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				cl.show(s, "Sea Creatures");
+				fram.showPanel("Sea Creatures");
 						
 			}
 			
@@ -187,7 +201,7 @@ public class ZooMap extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				cl.show(c, "Cats");
+				fram.showPanel("Cats");
 						
 			}
 			
@@ -198,7 +212,7 @@ public class ZooMap extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				cl.show(r, "Reptiles");
+				fram.showPanel("Reptiles");
 						
 			}
 			
@@ -206,4 +220,5 @@ public class ZooMap extends JPanel
 		
 		setVisible(true);
 	}
+
 }
